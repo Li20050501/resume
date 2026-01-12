@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Rivera | 创造未来的开发者</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #a855f7;
+            --bg: #0f172a;
+            --text: #f8fafc;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* 动态背景 */
+        .bg-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0f172a 100%);
+            z-index: -1;
+        }
+
+        .blob {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            filter: blur(100px);
+            border-radius: 50%;
+            opacity: 0.15;
+            z-index: -1;
+            animation: move 20s infinite alternate;
+        }
+
+        @keyframes move {
+            from { transform: translate(-20%, -20%); }
+            to { transform: translate(20%, 20%); }
+        }
+
+        /* 导航栏 */
+        nav {
+            padding: 2rem 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* 主体内容 */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        header {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: -2px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #6366f1, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        /* 按钮 */
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.4);
+        }
+
+        /* 卡片部分 */
+        .section-title {
+            font-size: 2rem;
+            margin: 4rem 0 2rem;
+            text-align: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--glass);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-10px);
+        }
+
+        .icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* 技能标签 */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background: rgba(99, 102, 241, 0.1);
+            color: #818cf8;
+            padding: 0.2rem 0.8rem;
+            border-radius: 10px;
+            font-size: 0.85rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 5rem 0 2rem;
+            color: #64748b;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            nav { padding: 1rem 5%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-glow"></div>
+    <div class="blob"></div>
+
+    <nav>
+        <div class="logo">ALEX.DEV</div>
+        <div>
+            <a href="mailto:hello@alexrivera.com" class="btn" style="color: var(--text)">联系我</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>你好，我是 <span class="gradient-text">Alex Rivera</span></h1>
+            <p class="subtitle">全栈开发工程师 & UI/UX 设计爱好者。我致力于将复杂的代码转化为极致的用户体验。</p>
+            <div class="cta">
+                <a href="#projects" class="btn btn-primary">查看我的作品</a>
+            </div>
+        </header>
+
+        <h2 class="section-title">核心领域</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-code icon"></i>
+                <h3>前端架构</h3>
+                <p>擅长构建高性能、响应式的 Web 应用，专注于 React 与 Next.js 生态。</p>
+                <div class="tags">
+                    <span class="tag">React</span>
+                    <span class="tag">TypeScript</span>
+                    <span class="tag">Tailwind</span>
+                </div>
+            </div>
+            <div class="card">
+                <i class="fas fa-server icon"></i>
+                <h3>后端开发</h3>
+                <p>设计可扩展的微服务架构和稳健的 API 接口，确保数据的高效流动。</p>
+                <div class="tags">
+                    <span class="tag">Node.js</span>
+                    <span class="tag">PostgreSQL</span>
+                    <span class="tag">Docker</span>
+                </div>
+            </div>
+            <div class="card">
+                <i class="fas fa-paint-brush icon"></i>
+                <h3>创意设计</h3>
+                <p>不仅是代码实现，更从视觉美学出发，打造令人愉悦的交互细节。</p>
+                <div class="tags">
+                    <span class="tag">Figma</span>
+                    <span class="tag">Framer Motion</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 6rem; text-align: center; padding: 4rem; background: var(--glass); border-radius: 30px;">
+            <h2 style="font-style: italic; font-weight: 300; font-size: 1.5rem;">
+                "代码不仅仅是机器运行的指令，它是解决现实问题的艺术。"
+            </h2>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Alex Rivera. 由 Gemini 驱动创意.</p>
+        </div>
+    </div>
+
+    <script>
+        // 简单的随动效果：背景气泡跟随鼠标移动
+        document.addEventListener('mousemove', (e) => {
+            const blob = document.querySelector('.blob');
+            const x = e.clientX;
+            const y = e.clientY;
+            blob.style.left = x - 250 + 'px';
+            blob.style.top = y - 250 + 'px';
+        });
+    </script>
+</body>
+</html>
